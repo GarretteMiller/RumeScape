@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     private Camera cam;
     private Vector2 touchPosition = default;
     GameObject item;
+    GameObject Orb;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,21 +14,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
+        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0);
-            touchPosition = touch.position;
-            if (touch.phase == TouchPhase.Began)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 3))
             {
-                Ray ray = cam.ScreenPointToRay(touchPosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, 3))
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (interactable)
                 {
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    if (interactable)
+                    if (hit.transform.tag == "Orb")
+                    {
+                        Orb = hit.collider.gameObject;
+                        Orb.GetComponent<ToggleOrb>().LightOrb(Orb);
+                    }
+                    else
                     {
                         item = hit.collider.gameObject;
+                        Debug.Log("got here" + item.name);
                         if (item != null)
                             item.GetComponent<ItemPickup>().PickUp(item);
                     }

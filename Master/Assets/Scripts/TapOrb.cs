@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapOrb : MonoBehaviour
+public class ToggleOrb : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Material Lit;
+    public Material Unlit;
 
-    // Update is called once per frame
-    void Update()
+    public void LightOrb(GameObject Orb)
     {
-        
+        if (Orb.GetComponent<MeshRenderer>().sharedMaterial == Unlit)
+            Orb.GetComponent<MeshRenderer>().material = Lit;
+        else
+            Orb.GetComponent<MeshRenderer>().material = Unlit;
     }
 }
