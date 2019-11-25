@@ -2402,16 +2402,6 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.1274504
       objectReference: {fileID: 0}
-    - target: {fileID: 7908228902559295340, guid: 99bd1fdeacdf643ba8eb4cd3fe94f210,
-        type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7908228903133850525, guid: 99bd1fdeacdf643ba8eb4cd3fe94f210,
-        type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99bd1fdeacdf643ba8eb4cd3fe94f210, type: 3}
 --- !u!4 &9147421194743667678 stripped
