@@ -38,8 +38,8 @@ public class Doors : MonoBehaviour
     }
     private void Update()
     {
-        levelClearChildScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorClose>().levelClearChildScript;
-        doorLockedChildScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorClose>().levelClearChildScript;
+//        levelClearChildScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorClose>().levelClearChildScript;
+ //       doorLockedChildScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorClose>().levelClearChildScript;
 
         tester();
         if(doorLocked==true)

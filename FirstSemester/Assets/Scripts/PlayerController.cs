@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
                     item.GetComponent<HoldItem>().ItemInteraction(item);
                     isHoldingItem = true;
                 }
-                else
+                else if(hit.collider.gameObject.GetComponent<ItemPickup>())
                 { 
                     item = hit.collider.gameObject;
                     //Debug.Log("got here" + item.name);

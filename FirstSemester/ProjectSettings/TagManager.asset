@@ -7,6 +7,11 @@ TagManager:
   - canvas
   - Orb
   - coin
+  - Door
+  - Holdable
+  - Screen
+  - CoinSlot
+  - Coins
   layers:
   - Default
   - TransparentFX

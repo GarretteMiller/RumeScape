@@ -51,4 +51,16 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+    public bool CheckItem(Item item)
+    {
+        for (int i = 0; i < items.Length; i++) 
+        {
+            if(items[i] == item)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

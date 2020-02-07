@@ -2,28 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ItemPickup : Interactable
 {
     private Inventory inventory;
-    Camera cam;
-    public float radius = 0.7f;
-    Renderer m_Renderer;
-    Material temp;
-    public Material newMaterial;
-    public float dist;
+    //Camera cam;
+    //public float radius = 0.7f;
+    //Renderer m_Renderer;
+    //Material temp;
+    //public Material newMaterial;
+    //public float dist;
     public Item item;
 
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("canvas").GetComponent<Inventory>();
-        m_Renderer = GetComponent<MeshRenderer>();
-        temp = m_Renderer.material;
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerController>().cam;
+        base.Start();
+      //  m_Renderer = GetComponent<MeshRenderer>();
+      //  temp = m_Renderer.material;
+      //  cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerController>().cam;
     }
-    void Update()
+
+    private void Update()
     {
-        dist = Vector3.Distance(cam.transform.position, transform.position);
-        TriggerOutline();
+        base.Update();
+        //dist = Vector3.Distance(cam.transform.position, transform.position);
+       // TriggerOutline();
     }
 
     public void PickUp(GameObject gameobject)
@@ -32,7 +36,7 @@ public class ItemPickup : Interactable
         inventory.AddItem(item);
     }
 
-    void TriggerOutline()
+   /* void TriggerOutline()
     {
         if (dist <= radius)
         {
@@ -43,4 +47,5 @@ public class ItemPickup : Interactable
             m_Renderer.material = temp;
         }
     }
+    */
 }

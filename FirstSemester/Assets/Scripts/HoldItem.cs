@@ -24,17 +24,18 @@ public class HoldItem : MonoBehaviour
     void Start()
     {
         originalParent = transform.parent;
-        m_Renderer = GetComponent<MeshRenderer>();
-        temp = m_Renderer.material;
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerController>().cam;
+       m_Renderer = GetComponent<MeshRenderer>();
+       temp = m_Renderer.material;
+       cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerController>().cam;
     }
 
 
     void Update()
     {
-        dist = Vector3.Distance(cam.transform.position, transform.position);
+       dist = Vector3.Distance(cam.transform.position, transform.position);
         TriggerOutline();
     }
+
 
     public void ItemInteraction(GameObject item)
     { 

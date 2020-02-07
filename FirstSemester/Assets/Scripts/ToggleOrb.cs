@@ -13,6 +13,8 @@ public class ToggleOrb : MonoBehaviour
     public Material newMaterial;
     public float dist;
     Camera cam;
+    private bool isSolved = false;
+
     private void Start()
     {
         m_Renderer = GetComponent<MeshRenderer>();
@@ -23,13 +25,14 @@ public class ToggleOrb : MonoBehaviour
     {
          dist = Vector3.Distance(cam.transform.position, transform.position);
          TriggerOutline();
+        isSolved = GameObject.FindGameObjectWithTag("Screen").GetComponent<ChangeScreen>().checkIfSolved();
     }
 
     void TriggerOutline()
     {
         if (!itemLit)
         {
-            if (dist <= radius)
+            if (dist <= radius && !isSolved)
             {
                 m_Renderer.material = newMaterial;
             }
@@ -42,7 +45,7 @@ public class ToggleOrb : MonoBehaviour
 
     public void LightOrb(GameObject Orb)
     {
-        if (dist <= radius)
+        if (dist <= radius && !isSolved)
         {
             if (Orb.GetComponent<MeshRenderer>().sharedMaterial == newMaterial)
             {
